@@ -101,13 +101,60 @@
 }
 
 #pragma mark - UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//     TestTableViewCell *cell = (TestTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"TestTableViewCell"];
+//    [cell setData:dataArr[indexPath.row]];
+//   CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+//    return size.height;
+//}
 
-     TestTableViewCell *cell = (TestTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"TestTableViewCell"];
-    [cell setData:dataArr[indexPath.row]];
-   CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    return size.height;
-}
+
+//2. Auto Layout with UITextView in UITableViewCell
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//   TestTableViewCell *cell = (TestTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"TestTableViewCell"];
+//    cell.t.text = [self.tableData objectAtIndex:indexPath.row];
+//    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+//    CGSize textViewSize = [cell.t sizeThatFits:CGSizeMake(cell.t.frame.size.width, FLT_MAX)];
+//    CGFloat h = size.height + textViewSize.height;
+//    h = h > 89 ? h : 89;  //89是图片显示的最低高度， 见xib
+//    NSLog(@"h=%f", h);
+//    return 1 + h;
+//}
+
+
+//5. 随UITextView高度动态改变Cell高度
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    C5 *cell = [self.tableView dequeueReusableCellWithIdentifier:@"C5"];
+//    cell.t.text = @"123";
+//    cell.t.delegate = self;
+//    return cell;
+//}
+//
+//#pragma mark - UITableViewDelegate
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    C5 *cell = (C5 *)self.prototypeCell;
+//    cell.t.text = self.updatedStr;
+//    CGSize s =  [cell.t sizeThatFits:CGSizeMake(cell.t.frame.size.width, FLT_MAX)];
+//    CGFloat defaultHeight = cell.contentView.frame.size.height;
+//    CGFloat height = s.height > defaultHeight ? s.height : defaultHeight;
+//    return 1  + height;
+//}
+//
+//#pragma mark - UITextViewDelegate
+//- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+//    if ([text isEqualToString:@"\n"]) {
+//        NSLog(@"h=%f", textView.contentSize.height);
+//    }
+//    return YES;
+//}
+//
+//- (void)textViewDidChange:(UITextView *)textView {
+//    self.updatedStr = textView.text;
+//    [self.tableView beginUpdates];
+//    [self.tableView endUpdates];
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
