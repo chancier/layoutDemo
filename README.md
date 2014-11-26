@@ -2,7 +2,7 @@ layoutDemo
 ==========
 
 NSLayoutConstraint  针对UIView+AutoLayout写的demo供自己学习参考
-
+下面是另外的小知识点关于@2x、@3x
 另外：
 /*
  *
