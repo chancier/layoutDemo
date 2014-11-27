@@ -8,7 +8,7 @@ NSLayoutConstraint  针对UIView+AutoLayout写的demo供自己学习参考
  *
  如果@2x、@3x都存在
 ｛
-    6以及一下自动取@2x图片
+    6以及以下自动取@2x图片
     6+取@3x图片
  ｝
  
