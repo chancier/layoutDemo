@@ -101,13 +101,13 @@
 }
 
 #pragma mark - UITableViewDelegate
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//     TestTableViewCell *cell = (TestTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"TestTableViewCell"];
-//    [cell setData:dataArr[indexPath.row]];
-//   CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-//    return size.height;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+     TestTableViewCell *cell = (TestTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"TestTableViewCell"];
+    [cell setData:dataArr[indexPath.row]];
+   CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height;
+}
 
 
 //2. Auto Layout with UITextView in UITableViewCell
